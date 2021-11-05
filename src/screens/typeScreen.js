@@ -6,6 +6,7 @@ import {
   TouchableOpacity,
   SafeAreaView,
   ScrollView,
+  Alert
 } from 'react-native';
 import {
   heightPercentageToDP as hp,
@@ -32,6 +33,7 @@ const typeScreen = ({navigation}) => {
       '#B13AFA',
     ]);
     useEffect(() => {
+      if(SubGradeDetail.length != 0){
       let test = [];
       let dontUse = [];
       let dataLength = SubGradeDetail.length;
@@ -64,6 +66,11 @@ const typeScreen = ({navigation}) => {
       }
       //SubGradeDetail.push(test.concat(dontUse))
       setnewSubGradeDetail(test);
+    }else{
+      Alert.alert('แจ้งเตือน', 'ระดับชั้นนี้ยังไม่มีข้อสอบ', [
+        { text: 'ยืนยัน', onPress: () => navigation.navigate('home') },
+      ]);
+    }
     }, [SubGradeDetail]);
 
     return (
