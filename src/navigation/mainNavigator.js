@@ -9,8 +9,10 @@ import {
   heightPercentageToDP as hp,
   widthPercentageToDP as wp,
 } from 'react-native-responsive-screen';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import * as userActions from '../store/actions/user';
+
 
 // import Icon.SVG
 import RenameIcon from '../assets/images/icons/rename_icon.svg';
@@ -88,8 +90,8 @@ const Navigator = () => {
     const getUser = async () => {
       try {
         dispatch(userActions.getUser());
-      //  await AsyncStorage.removeItem('user')
-      //  await AsyncStorage.removeItem('privilege')
+        //await AsyncStorage.removeItem('user')
+        //await AsyncStorage.removeItem('privilege')
       } catch (error) {
         console.log(error);
       }
