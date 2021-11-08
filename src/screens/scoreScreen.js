@@ -18,6 +18,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Modal from 'react-native-modal';
 import { CommonActions } from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import ImageModal from 'react-native-image-modal';
 // import Icon Advert
 import AdvertIcon from '../assets/images/icons/Vector.svg';
 // import Ads
@@ -254,6 +255,23 @@ const scoreScreen = ({ navigation, route }) => {
             ]}>
             คำถาม: {allQuestions[selectedQuestion.index].examQuestion}
           </Text>
+          {!answerResult && allQuestions[selectedQuestion.index].examPicAnswer !==
+            null &&
+            allQuestions[selectedQuestion.index].examPicAnswer !==
+            '' ? (
+            <View style={{ marginVertical: 5 }}>
+              <ImageModal              
+                modalImageResizeMode='contain'              
+                imageBackgroundColor="#ffffff"
+                style={{ width: 100, height: 100 }}
+                source={{
+                  uri:
+                    'https://api.test.schoolcare.app/getImg/getUploadFile?name=' +
+                    allQuestions[selectedQuestion.index].examPicAnswer.substr(8),
+                }}
+              />
+            </View>
+          ) : null}
           <View style={{ flexDirection: 'row', marginVertical: 10 }}>
             <Text
               style={[
