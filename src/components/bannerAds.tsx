@@ -5,8 +5,7 @@ const BannerAds = () => {
    return (
       <BannerAd
          size={BannerAdSize.ADAPTIVE_BANNER}
-         unitId={'ca-app-pub-3940256099942544/6300978111'} // <-- asd เทส
-         // unitId={'ca-app-pub-3940256099942544/6300978111'} // <-- ads จริง
+         unitId={'ca-app-pub-1678137107426089/9844673264'}
          onAdFailedToLoad={(error) => console.error(error)}
       />
    )
